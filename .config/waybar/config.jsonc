@@ -8,9 +8,7 @@
   "reload_style_on_change": true,
   // Choose the order of the modules
   "modules-left": [
-    // "custom/menu",
     "niri/workspaces",
-    // "niri/mode",
     "niri/window",
   ],
   "modules-center": ["clock", "custom/weather"],
@@ -75,8 +73,8 @@
       "critical": 15,
     },
     // "format": "{icon}", // without percentage
-    // "format": "{icon} {capacity}", // with percentage
-    "format": "󰋑 {capacity}", // heart with percentage
+    "format": "{icon} {capacity}", // with percentage
+    // "format": "󰋑 {capacity}", // heart with percentage
     "format-charging": "󰚥 {capacity}",
     "format-plugged": "󰚥 {capacity}",
     "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
@@ -103,10 +101,5 @@
     "max-length": 38,
     "exec": "playerctl -a metadata --format '{\"text\": \"{{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
     "on-click": "playerctl play-pause",
-  },
-  "custom/menu": {
-    "format": "󰫈",
-    "on-click": "pgrep -x rofi && pkill -x rofi || rofi -show drun",
-    "on-click-right": "~/.local/bin/menu",
   },
 }
