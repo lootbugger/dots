@@ -135,4 +135,4 @@ function y() {
 alias heineken="kitten icat ~/Downloads/heineken.png"
 alias garage="kitten icat ~/Downloads/garage_lemon.png"
 alias cheshki="kitten icat ~/Downloads/cheshki.jpg"
-task
+# task
