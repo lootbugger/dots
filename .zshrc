@@ -5,6 +5,7 @@ export PATH="$PATH:/home/kar/scripts"
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export QT_QPA_PLATFORMTHEME=qt6ct
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -81,11 +82,12 @@ plugins=(
   zsh-autosuggestions 
   zsh-syntax-highlighting 
   fast-syntax-highlighting 
-  zsh-autocomplete archlinux 
+  # zsh-autocomplete 
+  archlinux 
   zsh-uv-env 
   npm 
   golang 
-  # fzf-tab
+  fzf-tab
 )
 
 fpath=($HOME/.oh-my-zsh/completions $fpath)
@@ -136,3 +138,4 @@ alias heineken="kitten icat ~/Downloads/heineken.png"
 alias garage="kitten icat ~/Downloads/garage_lemon.png"
 alias cheshki="kitten icat ~/Downloads/cheshki.jpg"
 # task
+unsetopt BEEP

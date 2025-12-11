@@ -248,7 +248,7 @@ keybinds clear-defaults=true {
 // changing these requires a restart to take effect
 plugins {
     about location="zellij:about"
-    compact-bar location="zellij:compact-bar"
+    // compact-bar location="zellij:compact-bar"
     configuration location="zellij:configuration"
     filepicker location="zellij:strider" {
         cwd "/"
@@ -261,7 +261,9 @@ plugins {
     welcome-screen location="zellij:session-manager" {
         welcome_screen true
     }
-
+    compact-bar location="zellij:compact-bar" {
+      tooltip "F1"
+    }
 }
 
 // Plugins to load in the background when a new session starts

@@ -336,6 +336,11 @@ window-rule {
     open-floating true
 }
 
+window-rule {
+  match title="terminal_filechooser"
+  open-floating true
+}
+
 // Put swaybg inside the overview backdrop.
 layer-rule {
     match namespace="swww-daemon"
