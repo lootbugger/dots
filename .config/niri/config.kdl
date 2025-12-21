@@ -633,3 +633,5 @@ binds {
     // F9 { spawn "kitten" "quick-access-terminal"; }
     Mod+G { spawn "./scripts/niri_window_switcher"; }
 }
+
+include "wl_kbptr.kdl"

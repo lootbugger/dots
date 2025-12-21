@@ -6,7 +6,7 @@ export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export QT_QPA_PLATFORMTHEME=qt6ct
-
+export LESS="-SRXF"
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=nvim

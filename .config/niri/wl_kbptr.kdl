@@ -1,0 +1,4 @@
+binds {
+  Mod+M hotkey-overlay-title="Keybiard Pointer: floating" { spawn-sh "wl-kbptr"; }
+  Mod+S hotkey-overlay-title="Keybiard Pointer: split" { spawn-sh "wl-kbptr -o modes=split"; }
+}
