@@ -8,6 +8,9 @@
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Input
 environment {
     ELECTRON_OZONE_PLATFORM_HINT "auto"
+    QS_ICON_THEME "breeze-dark"
+    XDG_MENU_PREFIX "arch-"
+    QT_QPA_PLATFORMTHEME "kde"
 }
 input {
     keyboard {
@@ -17,7 +20,7 @@ input {
 
             // For example:
             layout "us,ua"
-            options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
+            options "grp:win_space_toggle,compose:ralt,caps:super"
         }
 
         // Enable numlock on startup, omitting this setting disables it.
@@ -72,7 +75,7 @@ input {
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
-/-output "eDP-1" {
+output "DP-2" {
     // Uncomment this line to disable this output.
     // off
 
@@ -82,10 +85,10 @@ input {
     // for the resolution.
     // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "1920x1080@120.030"
+    // mode "1920x1080@120.030"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
-    scale 2
+    // scale 2
 
     // Transform allows to rotate the output counter-clockwise, valid values are:
     // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
@@ -100,7 +103,7 @@ input {
     // so to put another output directly adjacent to it on the right, set its x to 1920.
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
-    position x=1280 y=0
+    position x=-1280 y=0
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -265,12 +268,14 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "waybar"
-spawn-at-startup "swww-daemon"
-spawn-at-startup "dunst"
-// spawn-at-startup "hypridle"
+// spawn-at-startup "waybar"
+// spawn-at-startup "swww-daemon"
+// spawn-at-startup "dunst"
+spawn-at-startup "qs" "-c" "noctalia-shell"
+spawn-at-startup "hypridle"
 spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
 spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
+spawn-sh-at-startup "XDG_MENU_PREFIX=arch- kbuildsycoca6 --noincremental"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
@@ -342,10 +347,15 @@ window-rule {
 }
 
 // Put swaybg inside the overview backdrop.
+// layer-rule {
+//     match namespace="swww-daemon"
+//
+//     place-within-backdrop true
+// }
+
 layer-rule {
-    match namespace="swww-daemon"
-    
-    place-within-backdrop true
+  match namespace="^noctalia-wallpaper*"
+  place-within-backdrop true
 }
 
 // Example: block out two password managers from screen capture.
@@ -385,9 +395,9 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+B hotkey-overlay-title="Open a Browser:  zen-browser" { spawn "zen-browser"; }
-    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Mod+P hotkey-overlay-title="Open clipboard history" { spawn "./cliphist-fuzzel-img"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprland" { spawn "hyprlock"; }
+    Mod+D hotkey-overlay-title="Run an Application" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+    Mod+P hotkey-overlay-title="Open clipboard history" { spawn-sh "qs -c noctalia-shell ipc call launcher clipboard"; }
+    Mod+Alt+L hotkey-overlay-title="Lock the Screen: hyprland" { spawn "hyprlock"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
@@ -632,6 +642,8 @@ binds {
 
     // F9 { spawn "kitten" "quick-access-terminal"; }
     Mod+G { spawn "./scripts/niri_window_switcher"; }
+    Mod+Shift+B { spawn-sh "qs -c noctalia-shell ipc call bar toggle"; }
 }
 
 include "wl_kbptr.kdl"
+include "./noctalia.kdl"

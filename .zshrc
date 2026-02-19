@@ -2,14 +2,16 @@
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 export PATH="$PATH:/home/kar/.cargo/bin"
 export PATH="$PATH:/home/kar/scripts"
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+# export GOROOT=/usr/local/go/bin
+# export GOPATH=$HOME/go
+# export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH="$PATH:/usr/local/go/bin"
 export QT_QPA_PLATFORMTHEME=qt6ct
 export LESS="-SRXF"
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=nvim
+export GZ_IP=127.0.0.1
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
@@ -59,7 +61,7 @@ ZSH_THEME="refined"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -139,3 +141,5 @@ alias garage="kitten icat ~/Downloads/garage_lemon.png"
 alias cheshki="kitten icat ~/Downloads/cheshki.jpg"
 # task
 unsetopt BEEP
+
+source /usr/share/nvm/init-nvm.sh
